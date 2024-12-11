@@ -20,5 +20,10 @@ namespace WPFApp
         {
             InitializeComponent();
         }
+
+        void CreateTask()
+        {
+            Task T;
+        }
     }
 }

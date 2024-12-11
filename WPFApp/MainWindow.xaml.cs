@@ -24,6 +24,15 @@ namespace WPFApp
         void CreateTask()
         {
             Task T;
+            // Que es un Delegado? Apuntador a funciones 
+            // Por ejemplo: Action y Func 
+            Action Code = new Action(ShowMessage);
+            T = new Task(Code);
+        }
+
+        void ShowMessage()
+        {
+            MessageBox.Show("Ejecutando el método ShowMessage");
         }
     }
 }

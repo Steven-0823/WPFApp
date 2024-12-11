@@ -28,6 +28,28 @@ namespace WPFApp
             // Por ejemplo: Action y Func 
             Action Code = new Action(ShowMessage);
             T = new Task(Code);
+            Task T2 = new(delegate
+            {
+                MessageBox.Show("Ejecutando una tarea en un metodo anonimo");            
+            }
+            );
+
+            Task T3 = new Task(
+                    () => ShowMessage());
+
+            //Expresion Lamda:
+            //(parametros de entrada ) => Expresion
+            //() => Expresion
+            // El operador lambda (=>) se lee como "va hacia"
+
+            Task T4 = new Task(() => MessageBox.Show("Ejecutnado"));
+
+            Task T5 = new Task(() =>
+            {
+                DateTime CurrentDate = DateTime.Today;
+                DateTime StartDate = CurrentDate.AddDays(30);
+                MessageBox.Show($"Tarea 5. Fecha calculada: {StartDate}");
+            });
         }
 
         void ShowMessage()
